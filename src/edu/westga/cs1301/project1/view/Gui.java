@@ -30,8 +30,8 @@ public class Gui extends GraphicsProgram {
 	 * @postcondition none
 	 */
 	public Gui() {
-		this.turtle1 = new Turtle();
-		this.turtle2 = new Turtle();
+		this.turtle1 = new Turtle(60);
+		this.turtle2 = new Turtle(20);
 		this.sketchPad = new ScribbleController(this.turtle1, this.turtle2);
 		this.statsController = new StatisticsController(this.turtle1, this.turtle2);
 	}
@@ -56,7 +56,7 @@ public class Gui extends GraphicsProgram {
 	 */
 	public void run() {
 		this.sketchPad.draw();
-		this.statsController.displaySummaryStats();
+		this.statsController.printSummaryStats();
 	}
 	
 	

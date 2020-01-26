@@ -37,25 +37,66 @@ public class StatisticsController {
 	}
 	
 	/**
-	 * Displays summary stats about the turtles used to draw.
+	 * Gets the total steps forward for the turtle passed through the parameter
+	 * @return The total amount of steps of the turtle
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 */
-	public void displaySummaryStats() {
-		System.out.println("Turtles stats: ");
-		System.out.println();
-		System.out.println("Steps taken by:");
-
-		int stepsByTurtle1 = this.turtle1.getStepsForward();
-		int stepsByTurtle2 = this.turtle2.getStepsForward();
-
-		System.out.println("First turtle: " + stepsByTurtle1);
-		System.out.println("Second turtle: " + stepsByTurtle2);
-		
-		Statistics stats = new Statistics();
-		double average = stats.computeAverage(stepsByTurtle1, stepsByTurtle2);
-		System.out.println("Average steps taken by both turtles:" + average);
+	
+	Statistics stats = new Statistics();
+	public int getTurtleSteps(Turtle turtle) {
+		return ((Turtle) turtle).getStepsForward();
+	}
+	
+	/**
+	 * Gets the average steps for the turtles
+	 * @return the average steps for the two turtles
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 */
+	
+	public double getAverageSteps() {
+		return stats.computeAverage(getTurtleSteps(turtle1), getTurtleSteps(turtle2));
+	}
+	
+	/**
+	 * Gets the standard steps of the turtle passed through the parameter
+	 * @return the standard steps for the turtles
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 */
+	
+	public double getStandardSteps(Turtle turtle) {
+		return stats.computeStandard(turtle);
 	}
 
+	/**
+	 * Prints the statistics of the turtle to the console
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 */
+	public void printSummaryStats() {
+		
+		System.out.println("Turtle stats: "
+				+ "\n "
+				+ "\n"
+				+ "Steps taken by:"
+				+ "\n"
+				+ "First turtle: " + getTurtleSteps(turtle1)
+				+ "\n"
+				+ "Second turtle: " + getTurtleSteps(turtle2)
+				+ "\n"
+				+ "Average steps taken by both turtles: " + getAverageSteps()
+				+ "\n"
+				+ "\n"
+				+ "Standard turtle steps traveled by:"
+				+ "\n"
+				+ "First turtle: " + getStandardSteps(turtle1)
+				+ "\n"
+				+ "Second turtle: " + getStandardSteps(turtle2));
+	}
 }

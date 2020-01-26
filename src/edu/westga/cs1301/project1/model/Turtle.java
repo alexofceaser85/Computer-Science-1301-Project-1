@@ -12,7 +12,7 @@ import acm.graphics.GTurtle;
  */
 public class Turtle extends GTurtle {
 
-	public static final double INITIAL_SPEED = 0.6;
+	public static final double INITIAL_SPEED = .6;
 	public static final int INITIAL_SIZE = 50;
 
 	private boolean tailDown;
@@ -28,7 +28,23 @@ public class Turtle extends GTurtle {
 	 * 
 	 */
 	public Turtle() {
+		this.initializeWithDefaultValues();	
+	}
+
+	/**
+	 * 
+	 * Creates a new Turtle object of variable size at location 0, 0.
+	 * 
+	 * @precondition none
+	 * @postcondition isTailDown() == false AND size == INITIAL_SIZE
+	 *                AND getLocation() == (25, 25) AND getSpeed() ==
+	 *                INITIAL_TURTLE_SPEED
+	 * 
+	 */
+	
+	public Turtle(int size) {
 		this.initializeWithDefaultValues();
+		this.setSize(size);
 	}
 
 	private void initializeWithDefaultValues() {
@@ -40,30 +56,6 @@ public class Turtle extends GTurtle {
 	}
 
 	/**
-	 * Increases the size of the turtle by 10.
-	 * 
-	 * @precondition none
-	 * @postcondition getSize() == getSize()@prev + 10
-	 */
-	public void increaseTurtleSizeBy10() {
-		int size = this.getTurtleSize();
-		size = size + 10;
-		this.setSize(size);
-	}
-
-	/**
-	 * Decreases the size of the turtle by 10.
-	 * 
-	 * @precondition none
-	 * @postcondition getSize() == getSize()@prev - 10
-	 */
-	public void decreaseTurtleSizeBy10() {
-		int size = this.getTurtleSize();
-		size = size - 10;
-		this.setSize(size);
-	}
-
-	/**
 	 * Moves the turtle forward in its current direction by a distance equal to
 	 * its own size. The turtle draws a line if its tail is down, but otherwise
 	 * just moves.
@@ -71,50 +63,33 @@ public class Turtle extends GTurtle {
 	 * @precondition none
 	 * @postcondition none
 	 */
-	public void stepForward() {
-		this.forward();
-		this.stepsForward++;
+	public void stepForward(int maxSteps) {
+		for (int counter = 0; counter < maxSteps; counter++) {
+			this.forward();
+			this.stepsForward++;
+		}
 	}
 
 	/**
-	 * Turns the turtle 90 degrees to its left.
+	 * Turns the turtle an inputted number of degrees to its left.
 	 *
 	 * @precondition none
 	 * @postcondition none
 	 */
-	public void turnLeft90() {
-		this.left(90.0);
+	public void turnLeft(double degree) {
+		this.left(degree);
 	}
 
 	/**
-	 * Turns the turtle 30 degrees to its left.
+	 * Turns the turtle an inputted number of degrees to its right.
 	 *
 	 * @precondition none
 	 * @postcondition none
 	 */
-	public void turnLeft30() {
-		this.left(30.0);
+	public void turnRight(double degree) {
+		this.right(degree);
 	}
 
-	/**
-	 * Turns the turtle 90 degrees to its right.
-	 *
-	 * @precondition none
-	 * @postcondition none
-	 */
-	public void turnRight90() {
-		this.right(90.0);
-	}
-
-	/**
-	 * Turns the turtle 30 degrees to its right.
-	 *
-	 * @precondition none
-	 * @postcondition none
-	 */
-	public void turnRight30() {
-		this.right(30.0);
-	}
 
 	/**
 	 * Drops the turtle's tail to the ground so it will draw a line when it
@@ -164,5 +139,4 @@ public class Turtle extends GTurtle {
 	public int getStepsForward() {
 		return this.stepsForward;
 	}
-
 }

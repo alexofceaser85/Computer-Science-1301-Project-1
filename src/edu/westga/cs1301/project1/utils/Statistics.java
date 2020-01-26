@@ -1,5 +1,8 @@
 package edu.westga.cs1301.project1.utils;
 
+import edu.westga.cs1301.project1.model.Turtle;
+
+
 /**
  * A class that helps with computing basic statistics
  * 
@@ -32,4 +35,16 @@ public class Statistics {
 		return (value1 + value2)/2.0;
 	}
 	
+	/**
+	 * Computes and returns the standard of the turtles
+	 *
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @param The turtle that you want to find the standard steps of
+	 * @return Standard steps of the turtle
+	 */
+	public double computeStandard(Turtle turtle) {
+		return (turtle.getTurtleSize() * turtle.getStepsForward())/50;
+	}	
 }
