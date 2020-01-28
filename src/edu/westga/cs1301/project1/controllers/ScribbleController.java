@@ -1,5 +1,7 @@
 package edu.westga.cs1301.project1.controllers;
 
+import java.awt.Color;
+
 import edu.westga.cs1301.project1.model.Turtle;
 
 /**
@@ -35,25 +37,37 @@ public class ScribbleController {
 	 */
 	public void draw() {
 		
-		this.bigTurtle.drawRectangleAtLocation(250, 500, 85, 460);
-		this.bigTurtle.drawEquilateralTriangle(300);
-		this.bigTurtle.setLocation(385, 460);
-		this.bigTurtle.drawEquilateralTriangle(200);
+		this.bigTurtle.drawRectangleAtLocation(85, 460, 250, 500, Color.black);
+		this.bigTurtle.drawEquilateralTriangleAtLocation(85, 460, 300, Color.black);
+		this.bigTurtle.drawEquilateralTriangleAtLocation(385, 460, 200, Color.black);
 		
-		this.littleTurtle.drawRectangleAtLocation(100, 70, 120, 600);
-		littleTurtleDrawWindows();
+		this.littleTurtle.drawRectangleAtLocation(120, 600, 100, 70, Color.black);
+		this.littleTurtleDrawWindows();
+		this.drawRowofShapes();
+		this.bigTurtle.drawHexagonAtLocation(600, 300, 150, Color.yellow);
+		moveTurtlesToInitialPosition();	
+	}
+
+	private void moveTurtlesToInitialPosition() {
 		this.littleTurtle.setLocation(25, 25);
 		this.bigTurtle.setLocation(25, 25);
 	}
 
-
 	private void littleTurtleDrawWindows() {
-		this.littleTurtle.drawRectangleAtLocation(70, 70, 220, 600);
-		this.littleTurtle.drawRectangleAtLocation(70, 70, 340, 600);
-		this.littleTurtle.drawRectangleAtLocation(70, 70, 460, 600);
-		this.littleTurtle.drawRectangleAtLocation(70, 70, 460, 500);
-		this.littleTurtle.drawRectangleAtLocation(70, 70, 340, 500);
-		this.littleTurtle.drawRectangleAtLocation(70, 70, 220, 500);
-		this.littleTurtle.drawRectangleAtLocation(70, 70, 120, 500);
+		this.littleTurtle.drawRectangleAtLocation(220, 600, 70, 70, Color.black);
+		this.littleTurtle.drawRectangleAtLocation(340, 600, 70, 70, Color.black);
+		this.littleTurtle.drawRectangleAtLocation(460, 600, 70, 70, Color.black);
+		this.littleTurtle.drawRectangleAtLocation(460, 500, 70, 70, Color.black);
+		this.littleTurtle.drawRectangleAtLocation(340, 500, 70, 70, Color.black);
+		this.littleTurtle.drawRectangleAtLocation(220, 500, 70, 70, Color.black);
+		this.littleTurtle.drawRectangleAtLocation(120, 500, 70, 70, Color.black);
+	}
+	
+	private void drawRowofShapes(){
+		this.littleTurtle.drawRectangleAtLocation(500, 750, 70, 70, Color.blue);
+		this.littleTurtle.drawEquilateralTriangleAtLocation(380, 810, 80, Color.green);
+		this.littleTurtle.drawHexagonAtLocation(300, 810, 50, Color.orange);
+		this.littleTurtle.drawEquilateralTriangleAtLocation(200, 810, 80, Color.MAGENTA);
+		this.littleTurtle.drawRectangleAtLocation(120, 750, 70, 70, Color.red);
 	}
 }

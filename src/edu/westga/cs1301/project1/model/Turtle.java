@@ -1,5 +1,7 @@
 package edu.westga.cs1301.project1.model;
 
+import java.awt.Color;
+
 import acm.graphics.GTurtle;
 
 /**
@@ -48,6 +50,7 @@ public class Turtle extends GTurtle {
 	}
 
 	private void initializeWithDefaultValues() {
+		this.setColor(Color.black);
 		this.tailDown = false;
 		this.stepsForward = 0;
 		this.setSize(INITIAL_SIZE);
@@ -142,43 +145,21 @@ public class Turtle extends GTurtle {
 	}
 	
 	/**
-	 * The turtles draw a rectangle with the given height and width
-	 * 
-	 * @precondition none
-	 * @postcondition none
-	 * 
-	 * @param width of the rectangle
-	 * @param height of the rectangle
-	 */
-	public void drawRectangle(int width, int height) {
-		this.lowerTail();
-		
-		this.stepForward(height/this.getTurtleSize());
-		this.turnRight(90);
-		this.stepForward(width/this.getTurtleSize());
-		this.turnRight(90);
-
-		this.stepForward(height/this.getTurtleSize());
-		this.turnRight(90);
-		this.stepForward(width/this.getTurtleSize());
-		this.turnRight(90);
-		
-		this.raiseTail();
-	}
-	
-	/**
 	 * The turtles draw a rectangle at a given x,y coordinate with a given width and height
 	 * 
-	 * @precondition none
+	 * @precondition steps must be > 0
 	 * @postcondition none
 	 * 
-	 * @param width of the rectangle
-	 * @param height of the rectangle
 	 * @param x coordinate to draw rectangle
 	 * @param y coordinate to draw rectangle
+	 * @param width of the rectangle
+	 * @param height of the rectangle
+	 * @param color of the rectangle
 	 */
-	public void drawRectangleAtLocation(int width, int height, int GoToX, int GoToY) {
+	public void drawRectangleAtLocation(int GoToX, int GoToY, int width, int height, Color color) {	
 		this.setLocation(GoToX, GoToY);
+		this.setColor(color);
+		
 		this.lowerTail();
 		
 		this.stepForward(height/this.getTurtleSize());
@@ -197,13 +178,19 @@ public class Turtle extends GTurtle {
 	/**
 	 * The turtles draw a rectangle with the given height and width
 	 * 
-	 * @precondition none
+	 * @precondition steps must be > 0
 	 * @postcondition none
 	 * 
+	 * @param x coordinate to draw triangle
+	 * @param y coordinate to draw triangle
 	 * @param length of the triangle sides
+	 * @param color of the triangle
 	 */
 	
-	public void drawEquilateralTriangle(int sizeLength) {
+	public void drawEquilateralTriangleAtLocation(int GoToX, int GoToY, int sizeLength, Color color) {
+		this.setLocation(GoToX, GoToY);
+		this.setColor(color);
+		
 		this.lowerTail();
 
 		this.stepForward(sizeLength/this.getTurtleSize());
@@ -212,7 +199,43 @@ public class Turtle extends GTurtle {
 		this.turnLeft(120);
 		this.stepForward(sizeLength/this.getTurtleSize());
 		this.turnLeft(120);
+		
 		this.raiseTail();
+
 	}
 	
+	/**
+	 * The turtles draw a rectangle with the given height and width
+	 * 
+	 * @precondition steps must be > 0
+	 * @postcondition none
+	 * 
+	 * @param x coordinate of the hexagon
+	 * @param y coordinate of the hexagon
+	 * @param length of the hexagon sides
+	 * @param color of the hexagon
+	 */
+	
+	public void drawHexagonAtLocation(int GoToX, int GoToY, int sizeLength, Color color) {
+		this.setLocation(GoToX, GoToY);
+		this.setColor(color);
+		
+		this.lowerTail();
+
+		this.setColor(color);
+		this.stepForward(sizeLength/this.getTurtleSize());
+		this.turnLeft(60);
+		this.stepForward(sizeLength/this.getTurtleSize());
+		this.turnLeft(60);
+		this.stepForward(sizeLength/this.getTurtleSize());
+		this.turnLeft(60);
+		this.stepForward(sizeLength/this.getTurtleSize());
+		this.turnLeft(60);
+		this.stepForward(sizeLength/this.getTurtleSize());
+		this.turnLeft(60);
+		this.stepForward(sizeLength/this.getTurtleSize());
+		this.turnLeft(60);
+		
+		this.raiseTail();
+	}
 }
