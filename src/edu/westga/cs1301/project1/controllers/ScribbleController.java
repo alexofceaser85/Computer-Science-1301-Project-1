@@ -26,57 +26,34 @@ public class ScribbleController {
 		this.bigTurtle = bigTurtle;
 		this.littleTurtle = littleTurtle;
 	}
-
+	
 	/**
-	 * Draws a figure on the screen using turtles.
+	 * Draws a house on the screen using turtles.
 	 * 
 	 * @precondition none
 	 * @postcondition none
 	 */
 	public void draw() {
-		this.bigTurtle.setLocation(85, 85);
-		this.littleTurtle.setLocation(165, 85);
-
-		this.drawRectangleWithBigTurtle();
-		this.drawRectangleWithLittleTurtle();
-
-		this.bigTurtle.setLocation(505, 85);
-		this.littleTurtle.setLocation(585, 85);
-
-		this.drawRectangleWithBigTurtle();
-		this.drawRectangleWithLittleTurtle();
+		
+		this.bigTurtle.drawRectangleAtLocation(250, 500, 85, 460);
+		this.bigTurtle.drawEquilateralTriangle(300);
+		this.bigTurtle.setLocation(385, 460);
+		this.bigTurtle.drawEquilateralTriangle(200);
+		
+		this.littleTurtle.drawRectangleAtLocation(100, 70, 120, 600);
+		littleTurtleDrawWindows();
+		this.littleTurtle.setLocation(25, 25);
+		this.bigTurtle.setLocation(25, 25);
 	}
 
-	private void drawRectangleWithLittleTurtle() {
-		this.littleTurtle.lowerTail();
-		this.littleTurtle.stepForward(7);
-		this.littleTurtle.turnRight(90);
-		this.littleTurtle.stepForward(15);
-		this.littleTurtle.turnRight(90);
 
-		this.littleTurtle.stepForward(7);
-		this.littleTurtle.turnRight(90);
-		this.littleTurtle.stepForward(15);
-		this.littleTurtle.turnRight(90);
-
-		this.littleTurtle.raiseTail();
+	private void littleTurtleDrawWindows() {
+		this.littleTurtle.drawRectangleAtLocation(70, 70, 220, 600);
+		this.littleTurtle.drawRectangleAtLocation(70, 70, 340, 600);
+		this.littleTurtle.drawRectangleAtLocation(70, 70, 460, 600);
+		this.littleTurtle.drawRectangleAtLocation(70, 70, 460, 500);
+		this.littleTurtle.drawRectangleAtLocation(70, 70, 340, 500);
+		this.littleTurtle.drawRectangleAtLocation(70, 70, 220, 500);
+		this.littleTurtle.drawRectangleAtLocation(70, 70, 120, 500);
 	}
-
-	private void drawRectangleWithBigTurtle() {
-		this.bigTurtle.lowerTail();
-
-		this.bigTurtle.stepForward(5);
-		this.bigTurtle.turnRight(90);
-
-		this.bigTurtle.stepForward(7);
-		this.bigTurtle.turnRight(90);
-
-		this.bigTurtle.stepForward(5);
-		this.bigTurtle.turnRight(90);
-		this.bigTurtle.stepForward(7);
-		this.bigTurtle.turnRight(90);
-
-		this.bigTurtle.raiseTail();
-	}
-
 }

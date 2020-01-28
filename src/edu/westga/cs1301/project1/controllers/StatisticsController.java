@@ -38,10 +38,12 @@ public class StatisticsController {
 	
 	/**
 	 * Gets the total steps forward for the turtle passed through the parameter
-	 * @return The total amount of steps of the turtle
+	 
 	 * 
 	 * @precondition none
 	 * @postcondition none
+	 * 
+	 * @return The total amount of steps of the turtle
 	 */
 	
 	Statistics stats = new Statistics();
@@ -51,10 +53,11 @@ public class StatisticsController {
 	
 	/**
 	 * Gets the average steps for the turtles
-	 * @return the average steps for the two turtles
 	 * 
 	 * @precondition none
 	 * @postcondition none
+	 * 
+	 * @return the average steps for the two turtles
 	 */
 	
 	public double getAverageSteps() {
@@ -67,6 +70,8 @@ public class StatisticsController {
 	 * 
 	 * @precondition none
 	 * @postcondition none
+	 * 
+	 * @param the turtle that you want to find the standard steps of
 	 */
 	
 	public double getStandardSteps(Turtle turtle) {

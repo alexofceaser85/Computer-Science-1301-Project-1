@@ -136,7 +136,83 @@ public class Turtle extends GTurtle {
 	 * 
 	 * @return The total number of steps forward the turtle has taken.
 	 */
+	
 	public int getStepsForward() {
 		return this.stepsForward;
 	}
+	
+	/**
+	 * The turtles draw a rectangle with the given height and width
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @param width of the rectangle
+	 * @param height of the rectangle
+	 */
+	public void drawRectangle(int width, int height) {
+		this.lowerTail();
+		
+		this.stepForward(height/this.getTurtleSize());
+		this.turnRight(90);
+		this.stepForward(width/this.getTurtleSize());
+		this.turnRight(90);
+
+		this.stepForward(height/this.getTurtleSize());
+		this.turnRight(90);
+		this.stepForward(width/this.getTurtleSize());
+		this.turnRight(90);
+		
+		this.raiseTail();
+	}
+	
+	/**
+	 * The turtles draw a rectangle at a given x,y coordinate with a given width and height
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @param width of the rectangle
+	 * @param height of the rectangle
+	 * @param x coordinate to draw rectangle
+	 * @param y coordinate to draw rectangle
+	 */
+	public void drawRectangleAtLocation(int width, int height, int GoToX, int GoToY) {
+		this.setLocation(GoToX, GoToY);
+		this.lowerTail();
+		
+		this.stepForward(height/this.getTurtleSize());
+		this.turnRight(90);
+		this.stepForward(width/this.getTurtleSize());
+		this.turnRight(90);
+
+		this.stepForward(height/this.getTurtleSize());
+		this.turnRight(90);
+		this.stepForward(width/this.getTurtleSize());
+		this.turnRight(90);
+		
+		this.raiseTail();
+	}
+	
+	/**
+	 * The turtles draw a rectangle with the given height and width
+	 * 
+	 * @precondition none
+	 * @postcondition none
+	 * 
+	 * @param length of the triangle sides
+	 */
+	
+	public void drawEquilateralTriangle(int sizeLength) {
+		this.lowerTail();
+
+		this.stepForward(sizeLength/this.getTurtleSize());
+		this.turnLeft(120);
+		this.stepForward(sizeLength/this.getTurtleSize());
+		this.turnLeft(120);
+		this.stepForward(sizeLength/this.getTurtleSize());
+		this.turnLeft(120);
+		this.raiseTail();
+	}
+	
 }
